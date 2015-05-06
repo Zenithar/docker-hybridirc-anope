@@ -1,0 +1,17 @@
+server:
+    build: ./server
+    ports:
+        - "6667"
+        - "6669"
+    environment:
+        - "SERVICE_6667_NAME=irc"
+        - "SERVICE_6669_NAME=irc-service"
+    net: "host"
+
+services:
+    build: ./services
+    ports:
+        - "80"
+    environment:
+        - "SERVICE_80_NAME=anope-admin"
+    net: "host"
